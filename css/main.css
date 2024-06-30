@@ -1,0 +1,28 @@
+* {
+	box-sizing: border-box;	
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	-ms-overflow-style: none;  /* IE and Edge */
+	scrollbar-width: none;  /* Firefox */
+	margin: 0;
+	padding-top: 3.5;
+}
+
+
+.title {
+	width: auto;
+	font-size: 4rem;	
+	vertical-align: middle;
+	text-align: center;
+}
+
+.clock-zone {
+	max-width: fit-content;
+	margin-left: auto;
+	margin-right: auto;
+}
