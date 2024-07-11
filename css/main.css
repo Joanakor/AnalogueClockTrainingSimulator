@@ -15,7 +15,7 @@ body {
 
 
 .title {
-	width: auto;
+	width: 100%;
 	font-size: 4rem;	
 	vertical-align: middle;
 	text-align: center;
@@ -23,6 +23,24 @@ body {
 
 .clock-zone {
 	max-width: fit-content;
-	margin-left: auto;
-	margin-right: auto;
+	margin-inline: auto;
+}
+
+.text-description {
+	font-size: 1.5rem;
+	margin-inline: 5%;
+	max-width: 900px;
+	min-width: 350px;
+}
+
+.game-form {
+	margin-top: 1rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#start-button {
+	min-height: 100px;
+	min-width: 300px;
 }
