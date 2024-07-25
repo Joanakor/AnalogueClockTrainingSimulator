@@ -10,7 +10,6 @@ body {
 	-ms-overflow-style: none;  /* IE and Edge */
 	scrollbar-width: none;  /* Firefox */
 	margin: 0;
-	padding-top: 3.5;
 }
 
 
@@ -28,19 +27,50 @@ body {
 
 .text-description {
 	font-size: 1.5rem;
-	margin-inline: 5%;
-	max-width: 900px;
-	min-width: 350px;
+	margin-inline: 20px;
+	max-width: fit-content;
+	min-width: 300px;
 }
 
 .game-form {
 	margin-top: 1rem;
+	margin-bottom: 2rem;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	border: 1px solid black;
+}
+
+.score, .timer{
+	text-align: center;
+	font-size: 2rem;
 }
 
 #start-button {
 	min-height: 100px;
 	min-width: 300px;
+	margin: 20px;
+	font-size: 4rem;
+}
+
+#game-inputs {
+	min-height: 100px;
+	min-width: 300px;
+	font-size: 1.8rem;
+	border: 0;
+}
+
+#game-inputs input[name="time"]{
+	width: 100%;
+	text-align: center;
+	font-size: 2rem;
+	display: inline-block;
+}
+
+button[name="submit-answer"] {
+	margin-top: 1rem;
+	width: 100%;
+	min-height: 2.5rem;
+	font-size: 2rem;
 }

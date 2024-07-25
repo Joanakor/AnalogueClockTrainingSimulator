@@ -6,21 +6,33 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Playwrite+IT+Moderna:wght@100..400&display=swap" rel="stylesheet">
+	
 
 	<link rel="stylesheet" href="/css/main.css">
+	<script type="text/javascript" src="/javascript/game.js" defer crossorigin="anonymous"></script>
 
 	<title>Analogue Clock Trainer</title>
 </head>
 <body>
-	<div class="title">Analogue Clock Trainer</div>
+	<div class="title">Analogue Clock Game</div>
 	<hr>
-	<p class="text-description">This is an analogue clock game for the people who struggle with a handed clocks. When you start the game, the clock will show you a time with its hands and you have to translate it into hours:minutes format in the form below while the timer goes. You have 1 minute to guess as many as possible hands positions. Enjoy!</p>
+	<p class="text-description">This is the analogue clock game for people who struggle with hand clocks. When you start the game, the clock will show you a time with its hands and you have to interpret it into hours:minutes format in the form below while the timer goes. You have 1 minute to guess as many as possible hands positions. Enjoy!</p>
+	<div hidden class="timer">1:00</div>
+
 	<div class="clock-zone">
 		<img src="/static/clock.png">
 	</div>
 
+	<div hidden class="score">0</div>
+
 	<form class="game-form">
-		<button id="start-button">Start</button>
+		<button id="start-button" name="start-button">Start</button>
+		<fieldset hidden id="game-inputs">
+			<label for=time>Enter the time on the clock:</label>
+			<br>
+			<input type="text" name="time" maxlength="5" pattern="\d{2}:\d{2}" placeholder="00:00">
+			<button name="submit-answer">Submit</button>
+		</fieldset>
 	</form>
 
 </body>
