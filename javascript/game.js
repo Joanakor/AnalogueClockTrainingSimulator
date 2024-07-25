@@ -12,12 +12,11 @@ init();
 
 function init() {
 
-	let doc = document;
-	let gameForm = doc.querySelector('.game-form');
+	let gameForm = document.querySelector('.game-form');
 	let startButton = gameForm.elements['start-button'];
-	let gameInput = doc.querySelector('#game-inputs');
-	let timer = doc.querySelector(".timer");
-	let score = doc.querySelector(".score");
+	let gameInput = document.querySelector('#game-inputs');
+	let timer = document.querySelector('.timer');
+	let scoreField = document.querySelector('.score');
 
 	startButton.onclick = game;
 
@@ -25,14 +24,32 @@ function init() {
 	{
 		event.preventDefault();
 
-		startButton.style.display = "none";
-		gameInput.style.display = "block";
-		timer.style.display = "block";
-		score.style.display = "block";
+		let answerTime = "17:05";
+		let score = 0;
+			
+		startButton.style.display = 'none';
+		gameInput.style.display = 'block';
+		timer.style.display = 'block';
+		scoreField.style.display = 'block';
 
-		let answerButton = gameForm.elements["submit-answer"];
+		gameForm.elements['time'].focus();
 
-		// console.log('Hello World!');
+		let submitButton = gameForm.elements['submit-answer'];
+
+		submitButton.onclick = checkAnswer;
+
+		function checkAnswer(event) {
+			event.preventDefault();
+
+			console.log("1");
+			
+			let answer = gameForm.elements['time'].value;
+
+			if (answer === answerTime) {
+				score++;
+				scoreField.textContent = score;
+			}
+		}
 	}
 }
 
