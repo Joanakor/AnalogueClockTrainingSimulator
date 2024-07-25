@@ -17,7 +17,7 @@
 	<div class="title">Analogue Clock Game</div>
 	<hr>
 	<p class="text-description">This is the analogue clock game for people who struggle with hand clocks. When you start the game, the clock will show you a time with its hands and you have to interpret it into hours:minutes format in the form below while the timer goes. You have 1 minute to guess as many as possible hands positions. Enjoy!</p>
-	<div hidden class="timer">1:00</div>
+	<div hidden class="timer">01:00</div>
 
 	<div class="clock-zone">
 		<img src="/static/clock.png">
@@ -26,12 +26,12 @@
 	<div hidden class="score">0</div>
 
 	<form class="game-form">
-		<button id="start-button" name="start-button">Start</button>
+		<button type="button" id="start-button" name="start-button">Start</button>
 		<fieldset hidden id="game-inputs">
 			<label for=time>Enter the time on the clock:</label>
 			<br>
 			<input type="text" name="time" maxlength="5" pattern="\d{2}:\d{2}" placeholder="00:00">
-			<button name="submit-answer">Submit</button>
+			<button type="button" name="submit-answer">Submit</button>
 		</fieldset>
 	</form>
 
