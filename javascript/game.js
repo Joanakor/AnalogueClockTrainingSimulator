@@ -31,26 +31,34 @@ function init() {
 
 	function game(event)
 	{
-		
 		event.preventDefault();
 
 		let answerTime;
 		let score = 0;
+		let timeRemained; // for the game timer
 			
+		// Remove Start button and showe game input form
 		startButton.style.display = 'none';
 		gameInputs.style.display = 'block';
-		timer.style.display = 'block';
+		timer.style.display = 'block';    
 		scoreField.style.display = 'block';
 
-		startTimer(60, timer);
+		document.querySelector('.congratulation').textContent = '';
+		timer.textContent = '01:00';
+		scoreField.textContent = '0';
+
+		startTimer(10, timer);
 
 		updateClock();
+
+		// Correct time is shown in console log for testing for now
 		console.log(answerTime);
 
 		gameForm.elements['time'].focus();
 
 		let submitButton = gameForm.elements['submit-answer'];
 
+		// On Enter key the answer in the input field is compared to the correct answer
 		inputs.forEach(input => {
 			input.addEventListener('keydown', function(event) {
 				if (event.key === 'Enter') {
@@ -60,8 +68,10 @@ function init() {
 			});
 		});
 
+		// The input field is also compared if we click Sublit button
 		submitButton.onclick = checkAnswer;
 
+		// Checks answer in the inut field with the actual answer and updates the correct answer if the submission was correct (with UpdateClock())
 		function checkAnswer(event) {
 			event.preventDefault();
 			
@@ -73,9 +83,11 @@ function init() {
 				updateClock();
 				gameForm.elements['time'].value = '';
 				console.log(answerTime);
+				console.log(timeRemained);
 			}
 		}
 
+		// Turns passed element in a timer
 		function startTimer(duration, display) {
             let timer = duration, minutes, seconds;
             let interval = setInterval(function () {
@@ -85,15 +97,17 @@ function init() {
                 minutes = minutes < 10 ? "0" + minutes : minutes;
                 seconds = seconds < 10 ? "0" + seconds : seconds;
 
-                display.textContent = minutes + ":" + seconds;
+				
+                timeRemained = display.textContent = minutes + ":" + seconds;
 
                 if (--timer < 0) {
                     clearInterval(interval);
-                    display.textContent = "Time's up!";
+					endGame();
                 }
             }, 1000);
         }
 
+		// Updates the correct answer
 		function updateClock()
 		{
 			let hours, minutes;
@@ -110,6 +124,16 @@ function init() {
 			}
 
 			answerTime = hours + ':' + minutes;
+		}
+
+		function endGame()
+		{
+			startButton.style.display = 'block';
+			gameInputs.style.display = 'none';
+			timer.style.display = 'none';    
+			scoreField.style.display = 'none';
+
+			document.querySelector('.congratulation').textContent = 'Your score is ' + score;
 		}
 	}
 }

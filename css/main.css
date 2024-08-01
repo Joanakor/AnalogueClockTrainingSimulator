@@ -43,7 +43,7 @@ body {
 	border: 1px solid black;
 }
 
-.score, .timer{
+.score, .timer, .congratulation{
 	text-align: center;
 	font-size: 2rem;
 }
