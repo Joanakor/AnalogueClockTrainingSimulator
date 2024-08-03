@@ -47,12 +47,9 @@ function init() {
 		timer.textContent = '01:00';
 		scoreField.textContent = '0';
 
-		startTimer(10, timer);
+		startTimer(60, timer);
 
 		updateClock();
-
-		// Correct time is shown in console log for testing for now
-		console.log(answerTime);
 
 		gameForm.elements['time'].focus();
 
@@ -82,8 +79,6 @@ function init() {
 				scoreField.textContent = score;
 				updateClock();
 				gameForm.elements['time'].value = '';
-				console.log(answerTime);
-				console.log(timeRemained);
 			}
 		}
 
@@ -112,18 +107,24 @@ function init() {
 		{
 			let hours, minutes;
 
-			hours = Math.floor(Math.random()*24)+1;
+			hours = Math.floor(Math.random()*12);
 			if(String(hours).length === 1) {
 				hours = '0' + hours;
 			}
-
-			minutes = Math.floor(Math.random()*60)+1;
-
+		
+			minutes = Math.floor(Math.random()*60);
+		
 			if(String(minutes).length === 1) {
 				minutes = '0' + minutes;
 			}
 
 			answerTime = hours + ':' + minutes;
+
+			const minuteDegrees = ((minutes / 60) * 360);
+			const hourDegrees = ((hours / 12) * 360) + ((minutes / 60) * 30);
+		
+			document.getElementById('minuteHand').style.transform = `rotate(${minuteDegrees}deg)`;
+			document.getElementById('hourHand').style.transform = `rotate(${hourDegrees}deg)`;
 		}
 
 		function endGame()
@@ -137,4 +138,7 @@ function init() {
 		}
 	}
 }
+
+
+
 
