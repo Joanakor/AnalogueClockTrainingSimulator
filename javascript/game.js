@@ -15,7 +15,7 @@ function init() {
 
 	let gameForm = document.querySelector('.game-form');
 	let startButton = gameForm.elements['start-button'];
-	let gameInputs = document.querySelector('#game-inputs');
+	let gameInputs = gameForm.elements['game-inputs']
 	let timer = document.querySelector('.timer');
 	let scoreField = document.querySelector('.score');
 
@@ -35,13 +35,15 @@ function init() {
 
 		let answerTime;
 		let score = 0;
-		let timeRemained; // for the game timer
 			
 		// Remove Start button and showe game input form
 		startButton.style.display = 'none';
 		gameInputs.style.display = 'block';
 		timer.style.display = 'block';    
 		scoreField.style.display = 'block';
+
+		document.querySelector('#hour-input').value = '';
+		document.querySelector('#minute-input').value = '';
 
 		document.querySelector('.congratulation').textContent = '';
 		timer.textContent = '01:00';
@@ -51,7 +53,7 @@ function init() {
 
 		updateClock();
 
-		gameForm.elements['time'].focus();
+		gameForm.elements['hour'].focus();
 
 		let submitButton = gameForm.elements['submit-answer'];
 
@@ -72,13 +74,17 @@ function init() {
 		function checkAnswer(event) {
 			event.preventDefault();
 			
-			let answer = gameForm.elements['time'].value;
+			let answer = document.querySelector('#hour-input').value + ':' + document.querySelector('#minute-input').value;
+
+			console.log(answer);
 
 			if (answer === answerTime) {
 				score++;
 				scoreField.textContent = score;
 				updateClock();
-				gameForm.elements['time'].value = '';
+				document.querySelector('#hour-input').value = '';
+				document.querySelector('#minute-input').value = '';
+				gameForm.elements['hour'].focus();
 			}
 		}
 
@@ -93,7 +99,7 @@ function init() {
                 seconds = seconds < 10 ? "0" + seconds : seconds;
 
 				
-                timeRemained = display.textContent = minutes + ":" + seconds;
+                display.textContent = minutes + ":" + seconds;
 
                 if (--timer < 0) {
                     clearInterval(interval);
