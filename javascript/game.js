@@ -81,10 +81,18 @@ function init() {
 			if (answer === answerTime) {
 				score++;
 				scoreField.textContent = score;
+				
 				updateClock();
+
+				blink(gameForm, 'green');
+
 				document.querySelector('#hour-input').value = '';
 				document.querySelector('#minute-input').value = '';
 				gameForm.elements['hour'].focus();
+			}
+			else
+			{
+				blink(gameForm, 'red');
 			}
 		}
 
@@ -142,6 +150,16 @@ function init() {
 
 			document.querySelector('.congratulation').textContent = 'Your score is ' + score;
 		}
+	}
+
+	function blink(element, color)
+	{
+		element.style['background-color'] = color;
+
+		setTimeout(() => {
+			element.style['background-color'] = 'transparent';
+			// Place the code you want to execute after the delay here
+		}, 500); // 1000 milliseconds = 1 second
 	}
 }
 
