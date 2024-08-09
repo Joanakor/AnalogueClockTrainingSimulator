@@ -48,7 +48,7 @@ hourInput.addEventListener('keydown', (event) => {
 minuteInput.addEventListener('input', (event) => {
 	let minuteValue = minuteInput.value.replace(/[^0-9]/g, ''); // Remove non-digit characters
 
-	if (minuteValue.length === 1) {
+	if (minuteValue.length === 1 && minuteValue[0] !== '0') {
 		// If a single digit is entered, pad it with zero
 		minuteValue = '0' + minuteValue;
 	}
@@ -66,10 +66,10 @@ minuteInput.addEventListener('input', (event) => {
 		minuteValue = 59;
 	}
 
-	if (minuteValue === '00') {
-		// If there are two digits, swap them
-		minuteValue = '';
-	}
+	// if (minuteValue === '00') {
+	// 	// If there are two digits, swap them
+	// 	minuteValue = '';
+	// }
 
 	
 	minuteInput.value = minuteValue;

@@ -7,10 +7,12 @@ html {
 }
 
 body {
+	height: 100%;
 	-ms-overflow-style: none;  /* IE and Edge */
 	scrollbar-width: none;  /* Firefox */
 	margin: 0;
 	background-color:#e6ffd7;
+	position: absolute;
 }
 
 
@@ -19,7 +21,14 @@ body {
 	font-size: 4rem;	
 	vertical-align: middle;
 	text-align: center;
+	font-family: sans-serif;
 }
+/* 
+.game-zone {
+	display: flex;
+	flex-direction: column;
+	height:100%;
+} */
 
 .clock-zone {
 	max-width: fit-content;
@@ -28,8 +37,8 @@ body {
 }
 
 .clock-zone img {
-	max-width: 500px;
-	min-width: 200px;
+	max-width: 1000px;
+	min-width: 400px;
 }
 
 .hands {
@@ -59,17 +68,27 @@ body {
 
 .game-form {
 	margin-top: 1rem;
-	margin-bottom: 2rem;
+	margin-bottom: 0;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	border: 1px solid black;
+	width:100%;
+}
+
+@media (min-width: 800px) or (max-height: 800px) {
+	.game-form {
+		position: fixed;
+		bottom: 0;
+		margin-bottom: 2rem;
+	}
 }
 
 .score, .timer, .congratulation{
 	text-align: center;
 	font-size: 2rem;
+	font-weight: bold;
 }
 
 #start-button {
@@ -77,6 +96,7 @@ body {
 	min-width: 300px;
 	margin: 20px;
 	font-size: 4rem;
+	font-family: monospace;
 }
 
 #game-inputs {

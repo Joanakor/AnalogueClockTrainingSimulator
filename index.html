@@ -17,35 +17,39 @@
 <body>
 	<div class="title">Analogue Clock Game</div>
 	<hr>
-	<p class="text-description">This is the analogue clock game for people who struggle with hand clocks. When you start the game, the clock will show you a time with its hands and you have to interpret it into hours:minutes format in the form below while the timer goes. You have 1 minute to guess as many as possible hands positions. Enjoy! (You can switch between hour and minute input with arrow keys)</p>
-	<div hidden class="timer">01:00</div>
+	<p class="text-description">This is the analogue clock game for people who struggle with hand clocks. When you start the game, the clock will show you a time with its hands and you have to interpret it into hours:minutes format in the form below while the timer goes. You have 1 minute to guess as many as possible hands positions. Enjoy! (You can switch between hour and minute input with arrow keys). Input form only accept the time <b>from 00:00 to 11:59</b></p>
 
-	<div class="clock-zone">
-		<img src="static/clock.png">
-		<svg class="hands" viewBox="0 0 100 100" style="width: 100%; height: 100%;">
-            <line id="hourHand" class="hand hour" x1="50" y1="50" x2="50" y2="20" stroke="black" stroke-width="3" />
-            <line id="minuteHand" class="hand" x1="50" y1="50" x2="50" y2="10" stroke="black" stroke-width="2" />
-        </svg>
-	</div>
+	<div class="game-zone">
+		<div hidden class="timer">01:00</div>
 
-	<div hidden class="score">0</div>
+		<div class="clock-zone">
+			<img src="static/clock.png">
+			<svg class="hands" viewBox="0 0 100 100" style="width: 100%; height: 100%;">
+				<line id="hourHand" class="hand hour" x1="50" y1="50" x2="50" y2="20" stroke="black" stroke-width="3" />
+				<line id="minuteHand" class="hand" x1="50" y1="50" x2="50" y2="10" stroke="black" stroke-width="2" />
+			</svg>
+		</div>
 
-	<form class="game-form" autocomplete="off">
-		<button type="button" id="start-button" name="start-button">Start</button>
-		
-		<fieldset hidden id="game-inputs" name="game-inputs">
-			<div>Enter the time on the clock:</label>
-			<div id="time-input">
-				<input id="hour-input" type="text" name="hour" maxlength="3" pattern="\d*" placeholder="00" aria-label="Hour Input">
-				<span>:</span>
-				<input id="minute-input" type="text" name="minute" maxlength="3" pattern="\d*" placeholder="00" aria-label="Minute Input">
-			</div>
+		<div hidden class="score">0</div>
+
+		<form class="game-form" autocomplete="off">
+			<button type="button" id="start-button" name="start-button">Start</button>
 			
-			<button type="button" name="submit-answer">Submit</button>
-		</fieldset>
-		
-		<div class="congratulation"></div>
-	</form>
+			<fieldset hidden id="game-inputs" name="game-inputs">
+				<div>Enter the time on the clock:</label>
+				<div id="time-input">
+					<input id="hour-input" type="text" name="hour" maxlength="3" pattern="\d*" placeholder="00" aria-label="Hour Input">
+					<span>:</span>
+					<input id="minute-input" type="text" name="minute" maxlength="3" pattern="\d*" placeholder="00" aria-label="Minute Input">
+				</div>
+				
+				<button type="button" name="submit-answer">Submit</button>
+			</fieldset>
+			
+			<div class="congratulation"></div>
+		</form>
+
+	</div>
 
 	<!-- <form class="game-form" autocomplete="off">
 		<button type="button" id="start-button" name="start-button">Start</button>
