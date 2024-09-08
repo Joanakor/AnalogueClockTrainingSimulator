@@ -76,8 +76,6 @@ function init() {
 			
 			let answer = document.querySelector('#hour-input').value + ':' + document.querySelector('#minute-input').value;
 
-			console.log(answer);
-
 			if (answer === answerTime) {
 				score++;
 				scoreField.textContent = score;
@@ -161,8 +159,32 @@ function init() {
 			// Place the code you want to execute after the delay here
 		}, 500); // 1000 milliseconds = 1 second
 	}
+
+
+
 }
 
 
 
 
+	// For testing purposes
+	function updateClockManually(hours, minutes)
+	{
+
+		let _hours = hours;
+		let _minutes = minutes;
+
+		if(String(hours).length === 1) {
+			_hours = '0' + _hours;
+		}
+	
+		if(String(minutes).length === 1) {
+			_minutes = '0' + _minutes;
+		}
+
+		const minuteDegrees = ((_minutes / 60) * 360);
+		const hourDegrees = ((_hours / 12) * 360) + ((_minutes / 60) * 30);
+	
+		document.getElementById('minuteHand').style.transform = `rotate(${minuteDegrees}deg)`;
+		document.getElementById('hourHand').style.transform = `rotate(${hourDegrees}deg)`;
+	}
